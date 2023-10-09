@@ -3,7 +3,7 @@
 #include <cassert>
 
 template<class T>
-class OrderedArray : Array<T>
+class OrderedArray : public Array<T>
 {
 public:
 	
@@ -104,23 +104,6 @@ public:
 		Array<T>::m_numElements = 0;
 	}
 	
-	int GetSize()
-	{
-		return Array<T>::m_numElements;
-	}
-	int GetMaxSize()
-	{
-		return Array<T>::m_maxSize;
-	}
-	int GetGrowSize()
-	{
-		return Array<T>::m_growSize;
-	}
-	int SetGrowSize(int val)
-	{
-		assert(val >= 0);
-		Array<T>::m_growSize = val;
-	}
 
 private:
 
