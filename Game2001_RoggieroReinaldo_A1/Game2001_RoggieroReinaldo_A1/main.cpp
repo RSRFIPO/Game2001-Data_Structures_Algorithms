@@ -35,7 +35,8 @@ int main()
     unorderedArray.push(36);
 
     std::cout << "Arrays in unordered form: ";
-    for (int i = 0; i < unorderedArray.GetSize(); i++) {
+    for (int i = 0; i < unorderedArray.GetSize(); i++) 
+    {
         std::cout << unorderedArray[i] << " ";
     }
     std::cout << std::endl;

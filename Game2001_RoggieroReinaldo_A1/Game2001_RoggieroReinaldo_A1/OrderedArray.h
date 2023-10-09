@@ -24,7 +24,7 @@ public:
 
 		if (Array<T>::m_numElements >= Array<T>::m_maxSize)
 		{
-			Expand();
+			Array<T>::Expand();
 		}
 
 		int i, k;	
@@ -144,29 +144,7 @@ private:
 
 		return -1;
 	}
-	
-	bool Expand()
-	{
-		if (Array<T>::m_growSize <= 0)
-		{
-			
-			return false;
-		}
 
-		T* temp = new T[Array<T>::m_maxSize + Array<T>::m_growSize];
-		assert(temp != nullptr);
-		
-		memcpy(temp, Array<T>::m_array, sizeof(T) * Array<T>::m_maxSize);
-		
-		delete[] Array<T>::m_array;
-
-		Array<T>::m_array = temp;
-		temp = nullptr;
-
-		Array<T>::m_maxSize += Array<T>::m_growSize;
-
-		return true;
-	}
 
 	bool m_noDuplicate;
 };

@@ -54,6 +54,30 @@ public:
         m_growSize = val;
     }
 
+    bool Expand()
+    {
+        if (m_growSize <= 0)
+        {
+            return false;
+        }
+
+
+        T* temp = new T[m_maxSize + m_growSize];
+        assert(temp != nullptr);
+
+        memcpy(temp, m_array, sizeof(T) * m_maxSize);
+
+        delete[] m_array;
+
+        m_array = temp;
+        temp = nullptr;
+
+       m_maxSize += m_growSize;
+        m_growSize *= 2;
+
+        return true;
+    }
+
 protected:
     T* m_array;
     int m_maxSize;
